@@ -1,0 +1,13 @@
+{
+  "tools": {
+    "web": { "fetcher": { "enabled": true, "format": "markdown" } },
+    "exec": { "enabled": true, "enable_deny_patterns": false }
+  },
+  "agents": {
+    "defaults": {
+      "workspace": "./workspace",
+      "model": "gpt-4o",
+      "max_tool_iterations": 15
+    }
+  }
+}
