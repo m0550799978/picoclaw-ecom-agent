@@ -72,15 +72,19 @@ PICOCLAW_AGENTS_DEFAULTS_WORKSPACE=$(pwd)/ecom_search_workplace picoclaw agent
 
 ## Recommended Test Command
 Once the agent starts, verify the setup by asking:
-
+```Bash
 "Research 1 winning product in the Electronics niche. Apply the 6-criteria protocol and save the results to our MariaDB database using the native binary path /data/data/com.termux/files/usr/bin/mariadb."
-📊 Profit Formula Logic
+```
+
+### 📊 Profit Formula Logic
 The agent is hardcoded to perform the following calculation before approving a product:
 Gross Profit: Sell Price - Supplier Cost
 Ad Spend: 20% of Revenue
 Fees: 5% (Processing/Shopify)
 Returns/CS: 5%
 Success Condition: Net Profit must be >$20.00 per unit.
-⚠️ Mobile Optimization Note
+
+##  Mobile Optimization Note
 This workspace uses the exec tool to call the mariadb binary directly. This is a Best Practice for mobile devices as it prevents "Out of Memory" crashes commonly caused by running secondary Node.js/MCP server processes.
-Created by m0550799978 for the PicoClaw community.
+
+### Created by m0550799978 for the PicoClaw community.
