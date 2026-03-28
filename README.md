@@ -1,23 +1,53 @@
 # 🦞 PicoClaw Ecom-Researcher Agent
 
-This is a specialized workspace for [PicoClaw](https://github.com/sipeed/picoclaw). It is optimized for mobile deployment (Termux) but managed via Mac.
+A specialized workspace for identifying viral dropshipping products using PicoClaw. Optimized for Termux/Android environments.
 
-## 📂 Features
-- **Winning Product Logic**: Implements the professional 6-criteria research protocol.
-- **SQL Storage**: Automatically logs findings to a local MariaDB database.
-- **Low Resource**: Designed to run on older Android hardware via Termux.
+## 📂 Structure
+- `ecom_search_workplace/`: Contains the Identity and Soul of the expert agent.
+- `winning_products`: MariaDB table for permanent storage.
 
-## 🛠 Installation
-1. **Clone the Repo** to your device:
-   `git clone https://github.com/YOUR_USERNAME/picoclaw-ecom-agent.git`
-2. **Setup Database**: 
-   Ensure MariaDB is installed and run:
-   `mariadb -u root -e "CREATE DATABASE IF NOT EXISTS ecom_research;"`
-3. **Configure PicoClaw**: 
-   Point your `config.json` to the `workspace/` folder in this repo.
+## 🛠 MariaDB Setup (Termux/Mobile)
+Before running the agent, you must initialize and configure your database:
 
-## 🚀 Execution
-Run the agent using the following environment override:
-```bash
-PICOCLAW_AGENTS_DEFAULTS_WORKSPACE=$(pwd)/workspace picoclaw agent
+1. **Install MariaDB**:
+   ```bash
+   apt update && apt install mariadb -y
+Initialize Database Folders:
+code
+Bash
+mysql_install_db
+Start the Database Server:
+code
+Bash
+mysqld_safe --user=root &
+Create Database and Tables:
+Log in using mariadb -u root and run:
+code
+SQL
+CREATE DATABASE IF NOT EXISTS ecom_research;
+USE ecom_research;
 
+CREATE TABLE IF NOT EXISTS winning_products (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    product_name VARCHAR(255),
+    niche VARCHAR(100),
+    winning_reason TEXT,
+    net_profit DECIMAL(10, 2),
+    markup_multiplier DECIMAL(5, 2),
+    competitor_keywords TEXT,
+    ad_hook TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+🚀 Execution
+Run the agent from the root of this repository:
+code
+Bash
+PICOCLAW_AGENTS_DEFAULTS_WORKSPACE=$(pwd)/ecom_search_workplace picoclaw agent
+🧠 Research Protocol
+The agent follows a strict 6-Criteria Protocol:
+Deep Problem (Physical/Emotional)
+Profit Margin Greenzone (3x Markup + $20 Net Profit)
+Lightweight (Low Shipping)
+Evergreen (Year-Round Demand)
+Upsell Potential
+Validated but Not Saturated
