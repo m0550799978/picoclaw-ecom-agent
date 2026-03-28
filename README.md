@@ -18,6 +18,6 @@ This is a specialized workspace for [PicoClaw](https://github.com/sipeed/picocla
 
 ## 🚀 Execution
 Run the agent using the following environment override:
-\`\`\`bash
+```bash
 PICOCLAW_AGENTS_DEFAULTS_WORKSPACE=$(pwd)/workspace picoclaw agent
-\`\`\`
+
